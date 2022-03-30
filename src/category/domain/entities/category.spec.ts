@@ -1,23 +1,17 @@
 import { Category } from "./category"
+import { omit } from 'lodash'
 
 describe('Category testes', ()=> {
     test('constructor of category', () => {
+        let category = new Category({name: 'Movie'})
 
-        const created_at = new Date();
-        const props = {
-            name: "Movie",
-            description: "some description",
-            is_active: true,
-            created_at
-        }
-        const category = new Category(props); 
+        let props = omit(category.props, 'created_at')
         
-        expect(category.props).toStrictEqual(
+        expect(props).toStrictEqual(
             {
                 name: "Movie",
-                description: "some description",
+                description: null,
                 is_active: true,
-                created_at
             }
         )
         // expect(category.name).toBe('Movie');
