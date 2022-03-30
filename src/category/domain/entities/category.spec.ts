@@ -1,5 +1,5 @@
 import { Category } from "./category"
-import { omit } from 'lodash'
+import { omit, templateSettings } from 'lodash'
 
 describe('Category testes', ()=> {
     test('constructor of category', () => {
@@ -46,5 +46,12 @@ describe('Category testes', ()=> {
         // expect(category.description).toBe('some description');
         // expect(category.is_active).toBeTruthy();
         // expect(category.created_at).toBe(created_at)
+       
+    })
+templateSettings    
+    test("getter of name field", () => {
+        const category = new Category({name: 'Movie'})
+
+        expect(category.name).toBe('Movie')
     })
 }) 
